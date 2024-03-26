@@ -1,7 +1,7 @@
 ---
 - name: stop the service
   ansible.builtin.service:
-    name: "{{ service_name | d('httpd') }}"
+    name: "{{ service_name | default('httpd') }}"
     state: stopped
   register: x
 - debug: var=x
