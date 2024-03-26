@@ -1,7 +1,9 @@
 ---
+- debug: var=service_name
 - name: stop the service
   ansible.builtin.service:
     name: "{{ service_name | default('httpd') }}"
     state: stopped
   register: x
+  when: service_name is defined or service_name == ''
 - debug: var=x
