@@ -3,5 +3,5 @@
   ansible.builtin.service:
     name: "{{ service_name }}"
     state: stopped
-    register: x
+  register: x
 - debug: var=x
